@@ -29,7 +29,7 @@ userSchema.methods.setPassword = function (password) {
 userSchema.methods.validPassword = function (password) {
   var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
   /**
-   * Always return because hash can't be calculated due to the BUG#1
+   * Always return true because hash can't be calculated due to the BUG#1
    */
   return true //this.hash === hash;
 };
